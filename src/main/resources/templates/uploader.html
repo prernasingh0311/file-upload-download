@@ -13,10 +13,8 @@
 <div class="container">
     <h1 class="mt-5">Upload or Download Files</h1>
     <div class="row mt-5">
-<!--        <h2 class="mt-5">Upload File to AWS S3</h2>-->
         <form method="POST" enctype="multipart/form-data" action="/upload">
             <div class="mb-3">
-<!--                <label for="file" class="form-label">Upload file...</label>-->
                 <input class="form-control" type="file" name="file" id="file">
             </div>
             <div class="mb-3">
@@ -38,7 +36,7 @@
             <tbody>
             <th:block th:each="file : ${files}">
                 <tr>
-                    <th scope="row">1</th>
+                    <td th:text="${file.id}"></td>
                     <td th:text="${file.file_path}"></td>
                     <td th:text="${file.file_name}"></td>
                     <td><a

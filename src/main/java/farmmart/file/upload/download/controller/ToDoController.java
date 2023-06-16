@@ -26,7 +26,6 @@ public class ToDoController {
             "/home/user/Desktop/files/";
     @GetMapping("/index")
     public String hello(Model model) {
-//        model.addAttribute("files", toDoService.findAll());
         var files = toDoService.list();
         model.addAttribute("files", files);
         return "uploader";
@@ -36,10 +35,6 @@ public class ToDoController {
     public ResponseEntity upload(@RequestParam("file")MultipartFile file) {
         return toDoService.upload(file);
     }
-//    @GetMapping("/download/{id}")
-//    public S3Object download(@PathVariable Long id) {
-//        return toDoService.download(id);
-//    }
 
     @GetMapping("download/{id}")
     @ResponseBody
